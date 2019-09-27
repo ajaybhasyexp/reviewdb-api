@@ -1,4 +1,5 @@
 const manController = require('../controllers/manufacturerController');
+const userController = require('../controllers/userController');
 
 const routes = [
     {
@@ -10,6 +11,16 @@ const routes = [
         method: 'POST',
         url: '/api/manufacturers',
         handler: manController.addManufacturer
+    },
+    {
+        method: 'GET',
+        url: '/api/users',
+        handler: userController.getUsers
+    },
+    {
+        method: 'POST',
+        url: '/api/users',
+        handler: userController.saveUser
     }
 ]
 

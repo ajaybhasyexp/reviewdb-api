@@ -18,6 +18,6 @@ exports.addManufacturer = async (req, reply) => {
         return manufacturer.save();
     }
     catch (err) {
-        boom.boomify(err);
+        throw boom.boomify(err);
     }
 };
