@@ -1,0 +1,27 @@
+{
+  "name": "reviewdb-api",
+  "version": "1.0.0",
+  "description": "Where words mean more than Ads",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon src/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ajaybhasyexp/reviewdb-api.git"
+  },
+  "author": "Ajay Bhasy",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ajaybhasyexp/reviewdb-api/issues"
+  },
+  "homepage": "https://github.com/ajaybhasyexp/reviewdb-api#readme",
+  "dependencies": {
+    "boom": "^7.3.0",
+    "fastify": "^2.8.0",
+    "fastify-swagger": "^2.4.0",
+    "mongoose": "^5.7.1",
+    "nodemon": "^1.19.2"
+  }
+}
