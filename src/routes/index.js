@@ -22,6 +22,6 @@ const routes = [
         url: '/api/users',
         handler: userController.saveUser
     }
-]
+];
 
 module.exports = routes;

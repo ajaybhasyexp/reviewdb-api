@@ -5,7 +5,12 @@ const fastify = require('fastify')({
 
 const mongoose = require('mongoose');
 const routes = require('./routes');
-const mongoString = 'mongodb://ajaybhasy:docker123@ds060649.mlab.com:60649/reviewdb';
+const mongoString = 'mongodb://fastifyuser:docker123@ds060649.mlab.com:60649/reviewdb';
+const swagger = require('./config/swagger');
+
+
+// Register Swagger
+fastify.register(require('fastify-swagger'), swagger.options);
 
 routes.forEach((route, index) => {
     fastify.route(route)
@@ -24,6 +29,7 @@ fastify.get('/', async (request, reply) => {
 const start = async () => {
     try {
         await fastify.listen(3000);
+        fastify.swagger();
         fastify.log.info('Server listening on port');
     }
     catch (err) {
