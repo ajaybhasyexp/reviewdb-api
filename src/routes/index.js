@@ -13,6 +13,11 @@ const routes = [
         handler: manController.addManufacturer
     },
     {
+        method:'GET',
+        url:'/api/manufacturers/:id',
+        handler:manController.getManufacturerById
+    },
+    {
         method: 'GET',
         url: '/api/users',
         handler: userController.getUsers

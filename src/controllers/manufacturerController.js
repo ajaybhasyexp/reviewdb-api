@@ -12,6 +12,18 @@ exports.getManufacturers = async (req, reply) => {
 
 };
 
+exports.getManufacturerById = async (req, reply) => {
+    try {
+        const manId = req.params.id;
+        const manufacturer = await Manufacturer.findById(manId);
+        return manufacturer;
+    }
+    catch (error) {
+        throw boom.boomify(error);
+    }
+
+};
+
 exports.addManufacturer = async (req, reply) => {
     try {
         const manufacturer = new Manufacturer(req.body);
