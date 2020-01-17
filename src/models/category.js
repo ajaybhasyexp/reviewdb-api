@@ -9,13 +9,18 @@ const categorySchema = new Schema({
         type: String
     },
     attributes: {
-        type: Map,
+        type: Schema.Types.Map,
         of: String
     },
     eCommerceLinks: {
-        type: Map,
+        type: Schema.Types.Map,
         of: String
-    }
+    },
+    source: {
+        type: String, required: true
+    },
+    source_url: String,
+    source_id: String,
 });
 
-module.exports = mongooose.model('Category', categorySchema);
+module.exports = mongoose.model('Category', categorySchema);

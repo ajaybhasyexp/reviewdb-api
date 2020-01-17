@@ -2,6 +2,7 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 const categoryRef = require('./subschemas/categoryref');
 const actionUser = require('./subschemas/actionuser');
+const ecommerceDetails = require('./subschemas/ecommercedetails');
 
 const productSchema = new Schema({
     name: {
@@ -13,7 +14,8 @@ const productSchema = new Schema({
         required: true
     },
     createdBy: [actionUser],
-    category: [categoryRef]
+    category: [categoryRef],
+    ecommerceDetails: [ecommerceDetails]
 
 });
 module.exports = mongoose.model('Product', productSchema);

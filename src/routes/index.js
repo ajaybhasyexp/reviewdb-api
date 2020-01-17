@@ -1,5 +1,7 @@
 const manController = require('../controllers/manufacturerController');
 const userController = require('../controllers/userController');
+const ecommerceController = require('../controllers/ecommerceController');
+const categoryController = require('../controllers/categoryController');
 
 const routes = [
     {
@@ -21,6 +23,26 @@ const routes = [
         method: 'POST',
         url: '/api/users',
         handler: userController.saveUser
+    },
+    {
+        method: 'POST',
+        url: '/api/ecommercevendors',
+        handler: ecommerceController.addEcomVendor
+    },
+    {
+        method: 'GET',
+        url: '/api/ecommercevendors',
+        handler: ecommerceController.getAllVendors
+    },
+    {
+        method: 'GET',
+        url: '/api/ecommercevendors/:name',
+        handler: ecommerceController.getEcomVendor
+    },
+    {
+        method: 'GET',
+        url: '/api/categories',
+        handler: categoryController.getCategories
     }
 ];
 
