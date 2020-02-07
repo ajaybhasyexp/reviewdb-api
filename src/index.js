@@ -2,13 +2,14 @@
 const fastify = require('fastify')({
     logger: true
 });
+const cors = require('fastify-cors');
 
 const mongoose = require('mongoose');
 const routes = require('./routes');
 const mongoString = 'mongodb://fastifyuser:docker123@ds060649.mlab.com:60649/reviewdb';
 const swagger = require('./config/swagger');
 
-const dataService = require('E:\\ReviewDB-Fastify\\reviewdb-data\\index');
+const dataService = require('E:\\Personal\\fastify\\reviewdb-data\\index');
 
 
 // Register Swagger
@@ -24,6 +25,10 @@ routes.forEach((route, index) => {
 //     .catch(err => console.log(err));
 
 dataService.createConnection(mongoString);
+
+fastify.register(require('fastify-cors'), {
+    // put your options here
+});
 
 // Declare a route
 fastify.get('/', async (request, reply) => {
