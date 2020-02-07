@@ -2,6 +2,7 @@ const manController = require('../controllers/manufacturerController');
 const userController = require('../controllers/userController');
 const ecommerceController = require('../controllers/ecommerceController');
 const categoryController = require('../controllers/categoryController');
+const productController = require('../controllers/productController');
 
 const routes = [
     {
@@ -15,9 +16,9 @@ const routes = [
         handler: manController.addManufacturer
     },
     {
-        method:'GET',
-        url:'/api/manufacturers/:id',
-        handler:manController.getManufacturerById
+        method: 'GET',
+        url: '/api/manufacturers/:id',
+        handler: manController.getManufacturerById
     },
     {
         method: 'GET',
@@ -48,7 +49,17 @@ const routes = [
         method: 'GET',
         url: '/api/categories',
         handler: categoryController.getCategories
-    }
+    },
+    {
+        method: 'GET',
+        url: '/api/products/:search',
+        handler: productController.getProducts
+    },
+    {
+        method: 'GET',
+        url: '/api/products',
+        handler: productController.getAllProducts
+    },
 ];
 
 module.exports = routes;
