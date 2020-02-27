@@ -28,4 +28,12 @@ exports.getProductsById = async (req, reply) => {
     catch (error) {
         throw boom.boomify(error);
     }
+
+}
+exports.getProductByQuery = async (req, reply) => {
+    try{
+        return dataService.ProductService.getProduct(req.body)
+    }catch (error){
+        throw boom.boomify(error)
+    }
 }
