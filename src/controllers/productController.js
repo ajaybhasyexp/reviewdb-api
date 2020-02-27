@@ -4,7 +4,6 @@ const boom = require('boom');
 exports.getProducts = async (req, reply) => {
     try {
         let result = dataService.ProductService.getProduct(req.params.search);
-        console.log(result);
         return result;
     }
     catch (error) {
@@ -15,6 +14,15 @@ exports.getProducts = async (req, reply) => {
 exports.getAllProducts = async (req, reply) => {
     try {
         return dataService.ProductService.getAllProducts();
+    }
+    catch (error) {
+        throw boom.boomify(error);
+    }
+}
+
+exports.getProductsById = async (req, reply) => {
+    try {
+        return dataService.ProductService.getProductById(req.params.id);
     }
     catch (error) {
         throw boom.boomify(error);

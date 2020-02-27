@@ -60,6 +60,11 @@ const routes = [
         url: '/api/products',
         handler: productController.getAllProducts
     },
+    {
+        method: 'GET',
+        url: '/api/:id/products',
+        handler: productController.getProductsById
+    }
 ];
 
 module.exports = routes;
