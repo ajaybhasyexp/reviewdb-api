@@ -1,4 +1,5 @@
-const dataService = require('E:\\Personal\\fastify\\reviewdb-data\\index');
+const path = require('path')
+const dataService = require(path.join(__dirname,'../../../reviewdb-data/index'));
 const boom = require('boom');
 
 exports.getUsers = async (req, reply) => {

@@ -68,6 +68,11 @@ const routes = [
     },
     {
         method: 'POST',
+        url: '/api/queryproduct',
+        handler: productController.getProductByQuery
+    },
+    {
+        method: 'POST',
         url: '/api/reviews',
         handler: reviewController.saveReview
     }

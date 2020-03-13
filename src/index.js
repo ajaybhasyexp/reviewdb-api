@@ -8,8 +8,8 @@ const mongoose = require('mongoose');
 const routes = require('./routes');
 const mongoString = 'mongodb://fastifyuser:docker123@ds060649.mlab.com:60649/reviewdb';
 const swagger = require('./config/swagger');
-
-const dataService = require('E:\\Personal\\fastify\\reviewdb-data\\index');
+const path = require('path')
+const dataService = require(path.join(__dirname,'../../reviewdb-data/index'));
 
 
 // Register Swagger
