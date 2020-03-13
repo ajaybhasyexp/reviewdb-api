@@ -64,6 +64,11 @@ const routes = [
         method: 'GET',
         url: '/api/:id/products',
         handler: productController.getProductsById
+    },
+    {
+        method: 'POST',
+        url: '/api/queryproduct',
+        handler: productController.getProductByQuery
     }
 ];
 

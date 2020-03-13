@@ -1,4 +1,5 @@
-const dataService = require('E:\\ReviewDB-Fastify\\reviewdb-data\\index');
+const path = require('path')
+const dataService = require(path.join(__dirname,'../../../reviewdb-data/index'));
 const boom = require('boom');
 
 exports.getProducts = async (req, reply) => {
@@ -26,5 +27,13 @@ exports.getProductsById = async (req, reply) => {
     }
     catch (error) {
         throw boom.boomify(error);
+    }
+
+}
+exports.getProductByQuery = async (req, reply) => {
+    try{
+        return dataService.ProductService.getProduct(req.body)
+    }catch (error){
+        throw boom.boomify(error)
     }
 }
