@@ -3,6 +3,7 @@ const userController = require('../controllers/userController');
 const ecommerceController = require('../controllers/ecommerceController');
 const categoryController = require('../controllers/categoryController');
 const productController = require('../controllers/productController');
+const reviewController = require('../controllers/reviewController');
 
 const routes = [
     {
@@ -64,6 +65,11 @@ const routes = [
         method: 'GET',
         url: '/api/:id/products',
         handler: productController.getProductsById
+    },
+    {
+        method: 'POST',
+        url: '/api/reviews',
+        handler: reviewController.saveReview
     }
 ];
 
