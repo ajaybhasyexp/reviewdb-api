@@ -1,5 +1,5 @@
 const path = require('path')
-const dataService = require(path.join(__dirname,'../../../reviewdb-data/index'));
+const dataService = require('E:\\ReviewDB-Fastify\\reviewdb-data\\index');
 const boom = require('boom');
 
 exports.getUsers = async (req, reply) => {
@@ -15,8 +15,15 @@ exports.getUsers = async (req, reply) => {
 exports.saveUser = async (req, reply) => {
     try {
         dataService.UserService.checkAndSaveUser(req.body);
-        // const user = new User(req.body);
-        // return user.save();
+    }
+    catch (err) {
+        throw boom.boomify(err);
+    }
+}
+
+exports.getUser = async (req, reply) => {
+    try {
+        return dataService.UserService.getUser(req.params.id);
     }
     catch (err) {
         throw boom.boomify(err);

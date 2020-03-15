@@ -32,6 +32,11 @@ const routes = [
         handler: userController.saveUser
     },
     {
+        method: 'GET',
+        url: '/api/users/:id',
+        handler: userController.getUser
+    },
+    {
         method: 'POST',
         url: '/api/ecommercevendors',
         handler: ecommerceController.addEcomVendor
@@ -75,6 +80,16 @@ const routes = [
         method: 'POST',
         url: '/api/reviews',
         handler: reviewController.saveReview
+    },
+    {
+        method:'GET',
+        url:'/api/reviews',
+        handler:reviewController.getAllReviews
+    },
+    {
+        method:'GET',
+        url:'/api/reviews/:id',
+        handler:reviewController.getProductReviews
     }
 ];
 
