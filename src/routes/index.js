@@ -82,14 +82,19 @@ const routes = [
         handler: reviewController.saveReview
     },
     {
-        method:'GET',
-        url:'/api/reviews',
-        handler:reviewController.getAllReviews
+        method: 'GET',
+        url: '/api/reviews',
+        handler: reviewController.getAllReviews
     },
     {
-        method:'GET',
-        url:'/api/reviews/:id',
-        handler:reviewController.getProductReviews
+        method: 'GET',
+        url: '/api/reviews/:id',
+        handler: reviewController.getProductReviews
+    },
+    {
+        method: 'GET',
+        url: '/api/:userId/reviews/:prodId',
+        handler: reviewController.getUserProductReview
     }
 ];
 

@@ -27,3 +27,12 @@ exports.getProductReviews = async (req, reply) => {
         throw boom.boomify(error);
     }
 }
+
+exports.getUserProductReview = async (req, reply) => {
+    try {
+        return dataService.ReviewService.getUserProductReview(req.params.prodId, req.params.userId);
+    }
+    catch (error) {
+        throw boom.boomify(error);
+    }
+}
