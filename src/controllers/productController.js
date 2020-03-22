@@ -1,4 +1,4 @@
-const dataService = require('E:\\Personal\\fastify\\reviewdb-data\\index');
+const dataService = require('E:\\AG\\Works\\Reviews\\reviewdb-data\\index');
 const boom = require('boom');
 
 exports.getProducts = async (req, reply) => {
@@ -36,3 +36,10 @@ exports.getProductByQuery = async (req, reply) => {
         throw boom.boomify(error)
     }
 }
+exports.getProductByCategory = async (req, reply) => {
+    try{
+        return dataService.ProductService.getProductByCategory( req.params.catId,req.params.limit)
+    }catch (error){
+        throw boom.boomify(error)                   
+    } 
+} 

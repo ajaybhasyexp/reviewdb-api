@@ -75,7 +75,17 @@ const routes = [
         method: 'POST',
         url: '/api/reviews',
         handler: reviewController.saveReview
-    }
+    },
+    {
+        method: 'GET',
+        url: '/api/productsByCategory/:catId/:limit',
+        handler: productController.getProductByCategory
+    },
+    {
+        method: 'GET',
+        url: '/api/reviewsByCategory/:catId/:limit',
+        handler: reviewController.getreviewsByCategory
+    },
 ];
 
 module.exports = routes;

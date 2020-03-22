@@ -8,4 +8,4 @@ const userSchema = new Schema({
     createdBy: actionUser
 });
 
-module.exports = mongooose.model('User', userSchema);
+module.exports = mongooose.model('User', userSchema); 
