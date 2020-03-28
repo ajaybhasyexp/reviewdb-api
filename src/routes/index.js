@@ -95,7 +95,6 @@ const routes = [
         method: 'GET',
         url: '/api/:userId/reviews/:prodId',
         handler: reviewController.getUserProductReview
-    }
     },
     {
         method: 'GET',

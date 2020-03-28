@@ -1,4 +1,4 @@
-const dataService = require('E:\\ReviewDB-Fastify\\reviewdb-data\\index');
+const dataService = require('E:\\Personal\\fastify\\reviewdb-data\\index');
 const boom = require('boom');
 
 exports.getProducts = async (req, reply) => {
@@ -24,7 +24,10 @@ exports.getProductsById = async (req, reply) => {
     try {
         var product = await dataService.ProductService.getProductById(req.params.id);
         var promAvg = await dataService.ProductService.getAverageReview(req.params.id);
-        product.set('avgRating', promAvg[0].ratingavg, { strict: false });
+        if (promAvg != undefined && promAvg.length > 0)
+            product.set('avgRating', promAvg[0].ratingavg, { strict: false });
+        else
+            product.set('avgRating', 0, { strict: false });
         return product;
     }
     catch (error) {
@@ -40,9 +43,9 @@ exports.getProductByQuery = async (req, reply) => {
     }
 }
 exports.getProductByCategory = async (req, reply) => {
-    try{
-        return dataService.ProductService.getProductByCategory( req.params.catId,req.params.limit)
-    }catch (error){
-        throw boom.boomify(error)                   
-    } 
+    try {
+        return dataService.ProductService.getProductByCategory(req.params.catId, req.params.limit)
+    } catch (error) {
+        throw boom.boomify(error)
+    }
 } 
